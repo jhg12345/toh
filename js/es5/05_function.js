@@ -4,9 +4,9 @@ function Person() {
     var someValue2 = 3;
 }
 
-// console.log(Person()); //실행결과는? 그 이유는?
+ console.log(Person()); //실행결과는? 그 이유는?
 
-console.log(new Person()); // 생성자 함수로 생성시 실행결과는?
+//console.log(new Person()); // 생성자 함수로 생성시 실행결과는?
 //
 console.log(someValue); // 실행결과와, 이유를 말하시오
 
