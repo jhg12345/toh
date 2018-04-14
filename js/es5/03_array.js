@@ -48,6 +48,8 @@ console.log('       [last] -> type ['+typeof jsTypeArr[jsTypeArr.length]+'], Obj
 // typeof     : 변수의 primitive 타입을 스트링으로 return. null도 object로 return 함.
 // instanceof : 변수의 prototype 의 chain 2번째 인자와 비교하여 true/false 값 return
 
+console.log(jsTypeArr[8] instanceof Object);
+
 //3. 맨 앞쪽에 이것이자바다, 40000, 김상형, 5를 추가하시오 (힌트: unshift)
 books.unshift(specialBook);
 console.log('3. Add a Special Book in front of books       -> ('+fnBooksAllTitle(books)+')');
@@ -78,13 +80,17 @@ var sumPrice = 0;
 books.forEach(book => sumPrice = sumPrice + book.price);
 console.log("10. books sum Price                           -> ("+sumPrice+')');
 
-// 11. 제목앞에 판매순위를 등수를 붙인 새로운 배열을 생성하시오.(힌트: map)
-var newBooks = books.map((book, index) => {
-      return {'title':[book.order, book.title].join("등 ")
-              ,'price':book.price
-              ,'author':book.author
-              ,'order':book.order};
-    });
+// // 11. 제목앞에 판매순위를 등수를 붙인 새로운 배열을 생성하시오.(힌트: map)
+// var newBooks = books.map((book, index) => {
+//       return {'title':[book.order, book.title].join("등 ")
+//               ,'price':book.price
+//               ,'author':book.author
+//               ,'order':book.order};
+//     });
+
+var newBooks = books.map((book) => Object.assign({},book, {title:[book.order, book.title].join("등 ")}));
+//newBooks = newBooks.map(book => book.title = [book.order, book.title].join("등 "));
+
 console.log("11. order + title = newBooks                  -> ("+fnBooksAllTitle(newBooks)+')');
 console.log("                    books                     -> ("+fnBooksAllTitle(books)+')');
 
